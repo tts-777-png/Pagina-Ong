@@ -3,36 +3,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const customInput = document.getElementById('custom-val');
     const donateButton = document.getElementById('btn-livepix');
 
-    // Correção do preenchimento:
+    // Lógica para preencher o valor ao clicar nos botões de R$
     valueButtons.forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita qualquer comportamento estranho
+            
+            // Remove destaque de todos os botões
             valueButtons.forEach(b => b.classList.remove('active'));
+            
+            // Adiciona destaque ao clicado
             button.classList.add('active');
-            customInput.value = button.getAttribute('data-amount');
+            
+            // Captura o valor do atributo data-amount
+            const valor = button.getAttribute('data-amount');
+            customInput.value = valor;
+            
+            console.log("Botão clicado, valor setado:", valor);
         });
     });
 
+    // Enviar para a API
     donateButton.addEventListener('click', async () => {
-        const valor = customInput.value;
-        if (!valor || valor <= 0) return alert("Selecione um valor!");
+        const amountValue = customInput.value;
 
-        donateButton.innerText = "Gerando PIX...";
+        if (!amountValue || amountValue <= 0) {
+            alert("Por favor, selecione ou digite um valor válido.");
+            return;
+        }
+
+        donateButton.innerText = "Processando PIX...";
         donateButton.disabled = true;
 
         try {
-            // Chama a Netlify Function que criamos
             const response = await fetch('/.netlify/functions/criar-pix', {
                 method: 'POST',
-                body: JSON.stringify({ amount: valor })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount: amountValue })
             });
-            
+
             const data = await response.json();
-            
+
             if (data.checkoutUrl) {
-                window.location.href = data.checkoutUrl; // Redireciona para o checkout gerado pela API
+                // Redireciona para a página de pagamento gerada
+                window.location.href = data.checkoutUrl;
+            } else {
+                throw new Error(data.details || "Erro desconhecido");
             }
+
         } catch (err) {
-            alert("Erro ao conectar com a API.");
+            console.error("Erro no checkout:", err);
+            alert("Ocorreu um erro ao gerar o PIX. Tente novamente em instantes.");
         } finally {
             donateButton.innerText = "Apoiar via Livepix (PIX)";
             donateButton.disabled = false;
