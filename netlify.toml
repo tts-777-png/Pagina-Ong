@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+# Garante que as URLs fiquem limpas (ex: site.com/projetos em vez de projetos.html)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.processing]
+  [build.processing.html]
+    pretty_urls = true

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adote uma Pegada | Transformando Vidas</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">Adote uma <span>Pegada</span></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Início</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#doar" class="btn-nav">Doar Agora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container flex">
+                <div class="hero-text">
+                    <span class="badge">Sua ajuda é o destino deles</span>
+                    <h2>Eles não escolhem as ruas. <br>Mas você pode escolher ajudá-los.</h2>
+                    <p>Imagine passar a noite sob chuva, sem saber quando será sua próxima refeição. Essa é a realidade de milhares de animais em nossa cidade. A <strong>Adote uma Pegada</strong> não aceita o abandono como destino final. Nós construímos o caminho de volta para a dignidade.</p>
+                    <div class="hero-buttons">
+                        <a href="#doar" class="btn-main">Quero ser um herói hoje</a>
+                        <a href="#projetos" class="btn-secondary">Ver impacto real</a>
+                    </div>
+                </div>
+                <div class="hero-img">
+                    <img src="public/images/hero-dog.jpg" alt="Cachorro acolhido">
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos" class="projects-section">
+            <div class="container">
+                <div class="section-title">
+                    <h3>Nossas Frentes de Ação</h3>
+                    <p>Transparência e trabalho duro para mudar a realidade local.</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="icon">🏠</div>
+                        <h4>Abrigos Térmicos</h4>
+                        <p>Instalamos casinhas isoladas termicamente em pontos estratégicos para proteger contra o frio intenso e chuvas.</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="icon">🍖</div>
+                        <h4>Comedouros Inteligentes</h4>
+                        <p>Nossos totens de alimentação são abastecidos diariamente com ração de alta qualidade e água filtrada.</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="icon">🏥</div>
+                        <h4>Socorro Veterinário</h4>
+                        <p>Parte das doações é destinada a castrações e atendimentos de emergência para animais feridos nas ruas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="doar" class="donation-section">
+            <div class="container">
+                <div class="donation-card">
+                    <div class="card-header">
+                        <h3>Mude uma vida agora</h3>
+                        <p>Com apenas R$ 10, você garante alimentação para um cão por 3 dias.</p>
+                    </div>
+                    
+                    <div class="value-selector">
+                        <button class="btn-val" data-amount="10">R$ 10</button>
+                        <button class="btn-val" data-amount="30">R$ 30</button>
+                        <button class="btn-val" data-amount="50">R$ 50</button>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="number" id="custom-val" placeholder="Outro valor (R$)">
+                    </div>
+
+                    <button id="btn-livepix" class="btn-final">Apoiar via Livepix (PIX)</button>
+                    <div class="security-info">
+                        <img src="https://img.icons8.com/ios-filled/50/38b2ac/shield.png" alt="Seguro">
+                        <span>Doação processada de forma segura via Livepix</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Adote uma Pegada | Desenvolvido com ❤️ por <strong>Lucas.Dev</strong></p>
+        </div>
+    </footer>
+
+    <script src="src/js/main.js"></script>
+</body>
+</html>
