@@ -38,7 +38,7 @@ exports.handler = async (event) => {
         const response = await axios.post('https://api.livepix.gg/v2/payments', {
             amount: valorCentavos, 
             currency: "BRL",
-            redirectUrl: "https://adoteumapegada.netlify.app/",
+            redirectUrl: "https://adoteumapegada.netlify.app/obrigado",
             correlationID: `doacao-${Date.now()}`
         }, {
             headers: { 
